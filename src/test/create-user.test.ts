@@ -23,4 +23,22 @@ describe("Quando for criar um utilizador", () => {
         const promise = new CriarUtilizadorContrioller(new CreateUser()).criar({ user });
         expect(promise).rejects.toThrowError('O campo nome não pode conter caracteres especiais');
     })
+
+    it('Caso seja fornecido um lastnome inválido', () => {
+        user.setName("VP")
+        const promise = new CriarUtilizadorContrioller(new CreateUser()).criar({ user });
+        expect(promise).rejects.toThrowError('O campo sobre nome não ser vazio.');
+    })
+
+    it('Caso seja fornecido um nome com números', () => {
+        user.setLastName('VP5')
+        const promise = new CriarUtilizadorContrioller(new CreateUser()).criar({ user });
+        expect(promise).rejects.toThrowError('O campo sobre nome não pode conter números');
+    })
+
+    it('Caso seja fornecido um nome com caracteres especiais', () => {
+        user.setLastName('VP@')
+        const promise = new CriarUtilizadorContrioller(new CreateUser()).criar({ user });
+        expect(promise).rejects.toThrowError('O campo sobre nome não pode conter caracteres especiais');
+    })
 })
