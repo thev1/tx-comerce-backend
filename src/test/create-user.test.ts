@@ -41,4 +41,16 @@ describe("Quando for criar um utilizador", () => {
         const promise = new CriarUtilizadorContrioller(new CreateUser()).criar({ user });
         expect(promise).rejects.toThrowError('O campo sobre nome não pode conter caracteres especiais');
     })
+
+    it('Caso seja fornecido um username inválido', () => {
+        user.setLastName('VP')
+        const promise = new CriarUtilizadorContrioller(new CreateUser()).criar({ user });
+        expect(promise).rejects.toThrowError('O campo username não ser vazio.');
+    })
+
+    it('Caso seja fornecido uma password inválido', () => {
+        user.setUserName('VP')
+        const promise = new CriarUtilizadorContrioller(new CreateUser()).criar({ user });
+        expect(promise).rejects.toThrowError('O campo password não ser vazio.');
+    })
 })

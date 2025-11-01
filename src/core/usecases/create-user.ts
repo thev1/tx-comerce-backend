@@ -26,6 +26,19 @@ export class CreateUser implements ICreateUser {
         
         if (/[^a-zA-Z0-9]/.test(user.getLastName()))
             throw new Error("O campo sobre nome não pode conter caracteres especiais");
+
+        if (user.getUserName() === undefined || user.getUserName() === null)
+            throw new Error("O campo username não ser vazio.");
+
+        if (user.getUserName().trim().length === 0)
+            throw new Error("O campo username não ser vazio.");
+
+        if (user.getPassword() === undefined || user.getPassword() === null)
+            throw new Error("O campo password não ser vazio.");
+
+        if (user.getPassword().trim().length === 0)
+            throw new Error("O campo password não ser vazio.");
+        
         return 'Utilizador criádo com sucesso.'
     }
 
