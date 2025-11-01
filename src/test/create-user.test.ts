@@ -17,4 +17,10 @@ describe("Quando for criar um utilizador", () => {
         const promise = new CriarUtilizadorContrioller(new CreateUser()).criar({ user });
         expect(promise).rejects.toThrowError('O campo nome não pode conter números');
     })
+
+    it('Caso seja fornecido um nome com caracteres especiais', () => {
+        user.setName('VP@')
+        const promise = new CriarUtilizadorContrioller(new CreateUser()).criar({ user });
+        expect(promise).rejects.toThrowError('O campo nome não pode conter caracteres especiais');
+    })
 })

@@ -9,6 +9,8 @@ export class CreateUser implements ICreateUser{
             throw new Error("O campo nome não ser vazio.");
         if(/\d/.test(user.getName()))
             throw new Error("O campo nome não pode conter números");
+        if(/[^a-zA-Z0-9]/.test(user.getName()))
+            throw new Error("O campo nome não pode conter caracteres especiais");
         
 
         return 'Utilizador criádo com sucesso.'
