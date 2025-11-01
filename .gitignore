@@ -37,4 +37,8 @@ coverage/
 *.tmp
 *.temp
 
+# prisma
 prisma/
+
+# Git
+package-lock.json
