@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "tx-comerce-backend",
   "version": "1.0.0",
   "description": "E-comerce aplication, developed by Texugo Softwere.",

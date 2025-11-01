@@ -1,0 +1,1 @@
+export * from './controllers/criar-utilizador-contrioller.js'
