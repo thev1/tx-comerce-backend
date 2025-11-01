@@ -1,0 +1,35 @@
+{
+  "name": "tx-comerce-backend",
+  "version": "1.0.0",
+  "description": "E-comerce aplication, developed by Texugo Softwere.",
+  "main": "index.tx",
+  "scripts": {
+    "dev": "nodemon --watch src --exec tsx src/server.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thev1/tx-comerce-backend.git"
+  },
+  "keywords": [
+    "Pictorino",
+    "Pedro",
+    "e-comerce"
+  ],
+  "author": "Victorino Pedro; vpangola@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thev1/tx-comerce-backend/issues"
+  },
+  "homepage": "https://github.com/thev1/tx-comerce-backend#readme",
+  "devDependencies": {
+    "@types/node": "^24.9.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.6"
+  }
+}
