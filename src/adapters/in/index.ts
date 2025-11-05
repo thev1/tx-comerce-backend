@@ -1,1 +1,1 @@
-export * from './controllers/criar-utilizador-contrioller.js'
+export * from './controllers/create-user-contrioller.js'

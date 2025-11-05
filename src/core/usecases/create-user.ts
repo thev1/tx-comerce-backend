@@ -1,44 +1,15 @@
-import type { ICreateUser } from "../contracts/create-user.js";
-import type { User } from "../entities/user.js";
+import type { ICreateUser } from "../ports/in/create-user-port.ts";
+import type { User } from "../entities/user.ts";
+import type { ICreateUserRepository } from "../ports/out/create-user-repository.js";
 
 export class CreateUser implements ICreateUser {
+    constructor(private createUserRepository: ICreateUserRepository){}
     async execute({ user }: { user: User; }): Promise<string> {
-        if (user.getName() === undefined || user.getName() === null)
-            throw new Error("O campo nome não ser vazio.");
-
-        if (user.getName().trim().length === 0)
-            throw new Error("O campo nome não ser vazio.");
-
-        if (/\d/.test(user.getName()))
-            throw new Error("O campo nome não pode conter números");
-        
-        if (/[^a-zA-Z0-9]/.test(user.getName()))
-            throw new Error("O campo nome não pode conter caracteres especiais");
-
-        if (user.getLastName() === undefined || user.getLastName() === null)
-            throw new Error("O campo sobre nome não ser vazio.");
-
-        if (user.getLastName().trim().length === 0)
-            throw new Error("O campo sobre nome não ser vazio.");
-
-        if (/\d/.test(user.getLastName()))
-            throw new Error("O campo sobre nome não pode conter números");
-        
-        if (/[^a-zA-Z0-9]/.test(user.getLastName()))
-            throw new Error("O campo sobre nome não pode conter caracteres especiais");
-
-        if (user.getUserName() === undefined || user.getUserName() === null)
-            throw new Error("O campo username não ser vazio.");
-
-        if (user.getUserName().trim().length === 0)
-            throw new Error("O campo username não ser vazio.");
-
-        if (user.getPassword() === undefined || user.getPassword() === null)
-            throw new Error("O campo password não ser vazio.");
-
-        if (user.getPassword().trim().length === 0)
-            throw new Error("O campo password não ser vazio.");
-        
+        user.validate();
+        user.setName(user.getName().toLocaleLowerCase());
+        user.setLastName(user.getLastName().toLocaleLowerCase())
+        user.setUserName(user.getUserName().toLocaleLowerCase());
+        await this.createUserRepository.save({e: user})
         return 'Utilizador criádo com sucesso.'
     }
 

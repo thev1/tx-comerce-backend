@@ -43,4 +43,42 @@ export class User {
     public setPassword(password: string) {
         this.password = password;
     }
+
+    public validate(){
+        if (this.getName() === undefined || this.getName() === null)
+            throw new Error("O campo nome não deve ser vazio.");
+
+        if (this.getName().trim().length === 0)
+            throw new Error("O campo nome não deve ser vazio.");
+
+        if (/\d/.test(this.getName()))
+            throw new Error("O campo nome não pode conter números");
+        
+        if (/[^a-zA-Z0-9]/.test(this.getName()))
+            throw new Error("O campo nome não pode conter caracteres especiais");
+
+        if (this.getLastName() === undefined || this.getLastName() === null)
+            throw new Error("O campo sobre nome não ser vazio.");
+
+        if (this.getLastName().trim().length === 0)
+            throw new Error("O campo sobre nome não ser vazio.");
+
+        if (/\d/.test(this.getLastName()))
+            throw new Error("O campo sobre nome não pode conter números");
+        
+        if (/[^a-zA-Z0-9]/.test(this.getLastName()))
+            throw new Error("O campo sobre nome não pode conter caracteres especiais");
+
+        if (this.getUserName() === undefined || this.getUserName() === null)
+            throw new Error("O campo username não deve ser vazio.");
+
+        if (this.getUserName().trim().length === 0)
+            throw new Error("O campo username não deve ser vazio.");
+
+        if (this.getPassword() === undefined || this.getPassword() === null)
+            throw new Error("O campo password não deve ser vazio.");
+
+        if (this.getPassword().trim().length === 0)
+            throw new Error("O campo password não deve ser vazio.");
+    }
 }

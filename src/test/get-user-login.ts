@@ -1,11 +1,7 @@
-import { describe, it, expect } from "vitest";
-import { CreateUserController } from "../adapters/in/controllers/create-user-contrioller.js";
-import { CreateUser } from "../core/usecases/create-user.js";
-import { User } from "../core/entities/user.js";
-import { CreateUserRepository } from "../infra/repos/create-user-repository.js";
+import { describe, expect, it } from "vitest";
 
 const sut = ({ user }: { user: User }) => {
-    return new CreateUserController(new CreateUser(new CreateUserRepository())).criar({ user });
+    return new GetUserLoginController(new GetUserLogin(new GetUserLoginRepository())).criar({ user });
 }
 describe("Quando for criar um utilizador", () => {
 
