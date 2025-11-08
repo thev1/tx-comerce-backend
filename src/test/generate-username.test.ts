@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { GenerateUsernameController } from "../adapters/in/controllers/generate-username-controller.js";
 import { GenerateUsername } from "../core/usecases/generate-username-user.js";
-import { GenerateUsernameRepository } from "../infra/repos/generate-username-repository.js";
+import { GenerateUsernameRepository } from "../adapters/out/respositories/generate-username-repository.js";
 
 const sut = ({ name, lastname }: { name: string, lastname: string }) => {
     return new GenerateUsernameController(new GenerateUsername(new GenerateUsernameRepository())).criar({ name, lastname });

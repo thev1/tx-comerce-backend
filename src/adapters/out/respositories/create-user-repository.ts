@@ -1,6 +1,7 @@
-import type { User } from "../../core/entities/user.js";
-import type { ICreateUserRepository } from "../../core/ports/out/create-user-repository.js";
-import { prisma, prismaError } from "../../config/prisma.js";
+import { prisma, prismaError } from "../../../config/prisma.js";
+import type { User } from "../../../core/entities/user.js";
+import type { ICreateUserRepository } from "../../../core/ports/out/create-user-repository.js";
+
 
 export class CreateUserRepository implements ICreateUserRepository {
   constructor() { }

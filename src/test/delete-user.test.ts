@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { DeleteUserController } from "../adapters/in/controllers/delete-user-controller.js";
 import { DeleteUser } from "../core/usecases/delete-user.js";
-import { DeleteUserRepository } from "../infra/repos/delete-user-repository.js";
+import { DeleteUserRepository } from "../adapters/out/respositories/delete-user-repository.js";
 
 const sut = ({ username }: { username: string }) => {
     return new DeleteUserController(new DeleteUser(new DeleteUserRepository())).delete({ username });

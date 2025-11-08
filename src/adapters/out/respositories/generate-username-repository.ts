@@ -1,6 +1,5 @@
-import type { User } from "../../core/entities/user.js";
-import { prisma, prismaError } from "../../config/prisma.js";
-import type { IGenerateUsernameRepository } from "../../core/ports/out/generate-username-repository.js";
+import { prisma, prismaError } from "../../../config/prisma.js";
+import type { IGenerateUsernameRepository } from "../../../core/ports/out/generate-username-repository.js";
 
 export class GenerateUsernameRepository implements IGenerateUsernameRepository {
   constructor() { }

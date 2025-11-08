@@ -1,5 +1,5 @@
-import type { IDeleteUserRepository } from "../../core/ports/out/delete-user-repository.js";
-import { prisma, prismaError } from "../../config/prisma.js";
+import { prisma, prismaError } from "../../../config/prisma.js";
+import type { IDeleteUserRepository } from "../../../core/ports/out/delete-user-repository.js";
 
 export class DeleteUserRepository implements IDeleteUserRepository {
     async delete({ username }: { username: string; }): Promise<string> {

@@ -1,6 +1,7 @@
-import type { User } from "../../core/entities/user.js";
-import { prisma, prismaError } from "../../config/prisma.js";
-import type { IGetUserLoginRepository } from "../../core/ports/out/get-user-login-repository.js";
+import { prisma, prismaError } from "../../../config/prisma.js";
+import type { User } from "../../../core/entities/user.js";
+import type { IGetUserLoginRepository } from "../../../core/ports/out/get-user-login-repository.js";
+
 
 export class GetUserLoginRepository implements IGetUserLoginRepository {
   constructor() { }

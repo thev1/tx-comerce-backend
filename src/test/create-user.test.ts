@@ -1,8 +1,8 @@
 import { describe, it, expect } from "vitest";
-import { CreateUserController } from "../adapters/in/controllers/create-user-contrioller.js";
+import { CreateUserController } from "../adapters/in/controllers/create-user-controller.js";
 import { CreateUser } from "../core/usecases/create-user.js";
 import { User } from "../core/entities/user.js";
-import { CreateUserRepository } from "../infra/repos/create-user-repository.js";
+import { CreateUserRepository } from "../adapters/out/respositories/create-user-repository.js";
 
 const sut = ({ user }: { user: User }) => {
     return new CreateUserController(new CreateUser(new CreateUserRepository())).criar({ user });

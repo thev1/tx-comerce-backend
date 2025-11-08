@@ -1,1 +1,1 @@
-export * from './controllers/create-user-contrioller.js'
+export * from './controllers/create-user-controller.js'

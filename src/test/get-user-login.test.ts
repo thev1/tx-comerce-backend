@@ -1,11 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { User } from "../core/entities/user.js";
-import { GetUserLoginController } from "../adapters/in/controllers/get-user-login-contrioller.js";
+import { GetUserLoginController } from "../adapters/in/controllers/get-user-login-controller.js";
+import { GetUserLoginRepository } from "../adapters/out/respositories/get-user-login-repository.js";
 import { GetUserLogin } from "../core/usecases/get-user-login.js";
-import { GetUserLoginRepository } from "../infra/repos/get-user-login-repository.js";
 
 const sut = ({ username, password }: { username: string, password: string }) => {
-    return new GetUserLoginController(new GetUserLogin(new GetUserLoginRepository())).criar({ username, password });
+    return new GetUserLoginController(new GetUserLogin(new GetUserLoginRepository())).get({ username, password });
 }
 describe("Quando for obter um utilizador para logar", () => {
 
@@ -26,7 +25,6 @@ describe("Quando for obter um utilizador para logar", () => {
 
     it('Caso for fornecido credencias válidas', async () => {
         const user = await sut({ username: 'vp', password:'VP' });
-        console.log(user, user instanceof User)
         expect(user !== null).toBe(true);
     })
 
