@@ -32,7 +32,7 @@ export const prisma =
     } else {
       // Outros erros genéricos
       console.error('Erro desconhecido:', error);
-      throw new Error('Erro interno no servidor.');
+      throw new Error(error);
     }
   } 
 
